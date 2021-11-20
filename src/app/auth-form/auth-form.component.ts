@@ -21,10 +21,10 @@ export class AuthFormComponent implements AfterContentInit {
   showMessage: boolean = false;
   constructor() {}
   ngAfterContentInit() {
-    if(this.remember){
-      this.remember.checked.subscribe((checked: boolean) => {
-        this.showMessage = checked;
-      });
+    if (this.remember) {
+      this.remember.checked.subscribe(
+        (checked: boolean) => (this.showMessage = checked)
+      );
     }
   }
 
