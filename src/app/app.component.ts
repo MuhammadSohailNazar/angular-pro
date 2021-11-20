@@ -7,13 +7,16 @@ import { IUser } from './auth-form/User';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'angular-pro';
-
+  rememberMe: boolean = false;
   createUser(user: IUser) {
     console.log('create user', user);
   }
 
   login(user: IUser) {
-    console.log('login', user);
+    console.log('login', user, this.rememberMe);
+  }
+
+  rememberUser(remember: boolean) {
+    this.rememberMe = remember;
   }
 }
