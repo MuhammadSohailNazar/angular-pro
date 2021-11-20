@@ -7,10 +7,14 @@ import { IUser } from './User';
   styleUrls: ['./auth-form.component.scss']
 })
 export class AuthFormComponent implements OnInit {
-  @Output("submitted") onSubmit = new EventEmitter<IUser>();
+  @Output("submitted") submitted = new EventEmitter<IUser>();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(form: any): void {
+    this.submitted.emit(form);
   }
 
 }
