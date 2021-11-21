@@ -5,7 +5,6 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { AuthFormComponent } from './auth-form/auth-form.component';
 import { IUser } from './auth-form/User';
 
 @Component({
@@ -21,7 +20,10 @@ export class AppComponent implements AfterViewInit {
 
 
   ngAfterViewInit() {
-    this.entry.createEmbeddedView(this.tmpl);
+    this.entry.createEmbeddedView(this.tmpl,{
+      $implicit: "sohail nazar",
+      location: "Karachi"
+    });
   }
 
   
