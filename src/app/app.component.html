@@ -1,9 +1,5 @@
 <div class="container">
-  <app-auth-form (submitted)="login($event)">
-    <h3>Login</h3>
-    <app-auth-remember (checked)="rememberUser($event)"></app-auth-remember>
-    <button type="submit">Login</button>
-  </app-auth-form>
+ <div #entry></div>
 </div>
 
 <router-outlet></router-outlet>

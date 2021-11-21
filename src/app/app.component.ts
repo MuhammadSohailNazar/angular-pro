@@ -1,4 +1,13 @@
-import { Component } from '@angular/core';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ComponentFactoryResolver,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
+import { AuthFormComponent } from './auth-form/auth-form.component';
 import { IUser } from './auth-form/User';
 
 @Component({
@@ -6,17 +15,22 @@ import { IUser } from './auth-form/User';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  rememberMe: boolean = false;
-  createUser(user: IUser) {
-    console.log('create user', user);
+export class AppComponent implements AfterViewInit {
+  @ViewChild('entry', { read: ViewContainerRef }) entry: ViewContainerRef;
+
+  constructor(
+    private resolver: ComponentFactoryResolver,
+    private cd: ChangeDetectorRef
+  ) {}
+
+  ngAfterViewInit() {
+    const authFormFactory =
+      this.resolver.resolveComponentFactory(AuthFormComponent);
+    this.entry.createComponent(authFormFactory);
+    this.cd.detectChanges();
   }
 
   login(user: IUser) {
-    console.log('login', user, this.rememberMe);
-  }
-
-  rememberUser(remember: boolean) {
-    this.rememberMe = remember;
+    console.log('login', user);
   }
 }
