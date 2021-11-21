@@ -8,6 +8,7 @@ import {
   EventEmitter,
   Output,
   QueryList,
+  Renderer2,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -28,16 +29,19 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
   @Output('submitted') submitted = new EventEmitter<IUser>();
 
   showMessage: boolean = false;
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(private cd: ChangeDetectorRef, private renderer: Renderer2) {}
 
   ngAfterViewInit() {
     this.messages.forEach((message) => {
       message.days = 30;
     });
     this.cd.detectChanges();
-    this.email.nativeElement.setAttribute('placeholder', 'Enter your email');
-    this.email.nativeElement.classList.add('email');
-    this.email.nativeElement.focus();
+    this.renderer.setAttribute(this.email.nativeElement,"placeholder","Enter your email address");
+    this.renderer.addClass(this.email.nativeElement,"email");
+    this.renderer.selectRootElement(this.email.nativeElement).focus();
+    //this.email.nativeElement.setAttribute('placeholder', 'Enter your email');
+    // this.email.nativeElement.classList.add('email');
+    // this.email.nativeElement.focus();
 
   }
 
