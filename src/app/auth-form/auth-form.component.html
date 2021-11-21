@@ -3,20 +3,14 @@
     <ng-content select="h3"></ng-content>
     <label for="email"
       >Email Address
-      <input type="email" name="email" ngModel />
+      <input type="email" name="email" #email ngModel />
     </label>
     <label for="password"
       >password
       <input type="password" name="password" ngModel />
     </label>
     <ng-content select="app-auth-remember"></ng-content>
-    <app-auth-message 
-      [style.display]="showMessage ? 'inherit' : 'none'"
-    ></app-auth-message>
-    <app-auth-message 
-      [style.display]="showMessage ? 'inherit' : 'none'"
-    ></app-auth-message>
-    <app-auth-message 
+    <app-auth-message
       [style.display]="showMessage ? 'inherit' : 'none'"
     ></app-auth-message>
     <ng-content select="button"></ng-content>

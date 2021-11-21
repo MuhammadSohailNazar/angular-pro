@@ -4,9 +4,11 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChildren,
+  ElementRef,
   EventEmitter,
   Output,
   QueryList,
+  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { AuthMessageComponent } from '../auth-message/auth-message.component';
@@ -22,6 +24,7 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
   @ContentChildren(AuthRememberComponent)
   remembers: QueryList<AuthRememberComponent>;
   @ViewChildren(AuthMessageComponent) messages: QueryList<AuthMessageComponent>;
+  @ViewChild('email') email: ElementRef;
   @Output('submitted') submitted = new EventEmitter<IUser>();
 
   showMessage: boolean = false;
@@ -32,6 +35,10 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
       message.days = 30;
     });
     this.cd.detectChanges();
+    this.email.nativeElement.setAttribute('placeholder', 'Enter your email');
+    this.email.nativeElement.classList.add('email');
+    this.email.nativeElement.focus();
+
   }
 
   ngAfterContentInit() {
