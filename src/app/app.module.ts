@@ -4,23 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthFormComponent } from './auth-form/auth-form.component';
-import { AuthRememberComponent } from './auth-remember/auth-remember.component';
-import { AuthMessageComponent } from './auth-message/auth-message.component';
+import { ExampleOneComponent } from './example-one/example-one.component';
+import { ExampleTwoComponent } from './example-two/example-two.component';
+import { ExampleThreeComponent } from './example-three/example-three.component';
 
 @NgModule({
-  declarations: [			
-    AppComponent,
-      AuthFormComponent,
-      AuthRememberComponent,
-      AuthMessageComponent
+  declarations: [			AppComponent,
+      ExampleOneComponent,
+      ExampleTwoComponent,
+      ExampleThreeComponent
    ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
