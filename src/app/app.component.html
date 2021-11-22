@@ -1,8 +1,8 @@
 <div class="container">
-  <button (click)="destroyComponent()">Destroy</button>
-  <button (click)="moveComponent()">Move</button>
-
  <div #entry></div>
+ <ng-template #tmpl let-name let-location="location">
+   {{name}} : {{location}}
+ </ng-template>
 </div>
 
 <router-outlet></router-outlet>
