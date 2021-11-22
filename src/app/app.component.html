@@ -1,8 +1,8 @@
 <div class="container">
- <div #entry></div>
- <ng-template #tmpl let-name let-location="location">
-   {{name}} : {{location}}
- </ng-template>
+  <ng-container [ngTemplateOutlet]="tmpl"></ng-container>
+  <ng-template #tmpl >
+    Muhammad Sohail Nazar : Bahrain
+  </ng-template>
 </div>
 
 <router-outlet></router-outlet>
