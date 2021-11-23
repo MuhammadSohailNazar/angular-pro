@@ -4,14 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ComponentOneComponent } from './component-one/component-one.component';
-import { ComponentTwoComponent } from './component-two/component-two.component';
+import { CreditCardDirective } from './credit-card/credit-card.directive';
+import { MyForDirective } from './my-for/my-for.directive';
+import { TooltipDirective } from './tooltip/tooltip.directive';
 
 @NgModule({
-  declarations: [					AppComponent,
-      ComponentOneComponent,
-      ComponentTwoComponent
-   ],
+  declarations: [AppComponent, CreditCardDirective, TooltipDirective,MyForDirective],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
