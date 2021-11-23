@@ -4,14 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ComponentOneComponent } from './component-one/component-one.component';
-import { ComponentTwoComponent } from './component-two/component-two.component';
+import { CreditCardDirective } from './credit-card/credit-card.directive';
 
 @NgModule({
-  declarations: [					AppComponent,
-      ComponentOneComponent,
-      ComponentTwoComponent
-   ],
+  declarations: [AppComponent, CreditCardDirective],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

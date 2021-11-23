@@ -1,9 +1,10 @@
 <div>
-  <button (click)="addProp()">Add Property</button>
-  <button (click)="changeUser()">Change User Object</button>
-  <button (click)="changeName()">Change Name Property</button>
-  <div>
-    <app-component-one [user]="user"></app-component-one>
-    <app-component-two [user]="user"></app-component-two>
-  </div>
+  <label for="creditcard">
+    Credit Card Number:
+    <input
+      type="text"
+      name="creditcard"
+      placeholder="Enter your 16-digits card number"
+      credit-card />
+  </label>
 </div>
