@@ -1,35 +1,38 @@
 import { Component } from '@angular/core';
+import { FilesizePipe } from './filesize.pipe';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [FilesizePipe],
 })
 export class AppComponent {
-  items = [
+  mapped: any = [];
+  files = [
     {
-      name: 'Item 1',
-      age: 10,
-      location: 'USA',
+      name: 'File 1',
+      size: 1223123,
+      type: 'pdf',
     },
     {
-      name: 'Item 2',
-      age: 20,
-      location: 'UK',
+      name: 'File 2',
+      size: 12234,
+      type: 'pdf',
     },
     {
-      name: 'Item 3',
-      age: 30,
-      location: 'Pakistan',
+      name: 'File 3',
+      size: 4223432,
+      type: 'pdf',
     },
   ];
-
-  constructor() {
-    setTimeout(() => {
-      this.items = [
-        ...this.items,
-        { name: 'Item 4', age: 40, location: 'India' },
-      ];
-    }, 1000);
+  constructor(private filesizePipe: FilesizePipe) {
+    this.mapped = this.files.map((file) => {
+      return {
+        name: file.name,
+        size: this.filesizePipe.transform(file.size, 'mb'),
+        type: file.type,
+      };
+    });
   }
 }
