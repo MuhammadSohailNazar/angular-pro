@@ -4,10 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FilesizePipe } from './filesize.pipe';
 
 @NgModule({
-  declarations: [AppComponent,FilesizePipe],
+  declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
