@@ -1,18 +1,21 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Product } from '../../models/product';
 
 @Component({
   selector: 'stock-selector',
   templateUrl: './stock-selector.component.html',
-  styleUrls: ['./stock-selector.component.scss']
+  styleUrls: ['./stock-selector.component.scss'],
 })
 export class StockSelectorComponent implements OnInit {
   @Input() parent: FormGroup;
   @Input() products: Product[];
-  constructor() { }
+  @Output() added = new EventEmitter<any>();
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onAdd() {
+    this.added.emit(this.parent.get('selector')?.value);
   }
-
 }
